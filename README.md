@@ -1,6 +1,6 @@
 The Tribble family of ciphers are stream ciphers designed for ease of implementation. The author found that after implementing stream ciphers in a number of programming languages, with the intentional exclusion of RC4, certain languages were lacking in stable byte-by-byte stream cipher implementations, with algorithms like Salsa and ChaCha being typically implemented in block modes, or requiring obnoxious platform-dependent extensions.
 
-Tribble ciphers are a form of 'Hashing Stream Cipher'. They operate in CTR mode and are highly stateful, allowing them to encrypt/decrypt traffic as it arrives rather than waiting for a full block or requiring pre-determined padding. They are intended to be very simple to write and understand, even in unfamiliar languages. They have only one basic dependency (any secure hashing function with pseudo-random properties), and have well understood security properties.
+Tribble ciphers are a form of 'Hashing Stream Cipher'. They operate in CTR mode and are highly stateful ("online"), allowing them to encrypt/decrypt traffic as it arrives rather than waiting for a full block or requiring pre-determined padding. They are intended to be very simple to write and understand, even in unfamiliar languages. They have only one basic dependency (any secure hashing function with pseudo-random properties), and have well understood security properties.
 
 Some reasons to use Tribble ciphers:
 
