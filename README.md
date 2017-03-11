@@ -15,7 +15,7 @@ Some reasons to use Tribble ciphers:
 Some reasons not to use Tribble ciphers:
 
 * Not nearly as fast as alternative stream ciphers, like Salsa or ChaCha, or block ciphers in stream modes. The un-optimised, managed, C# reference implementation benchmarks in at somewhere in the vague realm of 13Mib/s on commodity hardware.
-* No integrity, meaning that an attacker could alter the ciphertext in transit. This is generally A Bad Thing(tm), but not an issue for every use case and is inherent to stream operation.
+* No integrity, meaning that an attacker could alter the ciphertext in transit. This is generally A Bad Thing(tm), but not an issue for every use case, and is inherent to stream operation. If you need integrity, add it elsewhere, or don't use a stream cipher.
 * If the underlying hash implementation is vulnerable to timing attacks, then so is the Tribble cipher.
 * If you were to encrypt an incredibly large amount of data with the same key, it would become theoretically possible to brute-force the key in a reasonable time frame. By incredibly large I mean staggeringly, stupidly, heat-death-of-the-universe-first sort of large: 2^48-ish bytes. If you're really paranoid, you can use a random IV (just XOR the key against it) to remove the risk entirely.
 
