@@ -69,33 +69,3 @@ Encryption
 ```Byte[] ciphertext = new TribbleSHA512(key).XOR(plaintext)```
 Decryption
 ```Byte[] plaintext = new TribbleSHA512(key).XOR(ciphertext)```
-
-Condensed version
-```
-class t {
-	SHA512 _h = SHA512.Create();
-	Int64 _c = 0;
-	Byte _p = 0;
-	Byte[] _s;
-
-	t(Byte[] k) {
-		_s = k.ToArray(); n();
-	}
-
-	void n() {
-		var cb = BitConverter.GetBytes(_c);
-		for (var i = 0; i < 8; i++) _s[i] ^= cb[i];
-		_s = _h.ComputeHash(_s);
-		_c++; _p = 0;
-	}
-
-	Byte[] X(Byte[] in) {
-		var out = new Byte[in.Length];
-		for (var i = 0; i < in.Length; i++) {
-			out[i] = (Byte)(in[i] ^ _s[_p]); _p++;
-			if (_p % 64 == 0) n();
-		}
-		return out;
-	}
-}
-```
