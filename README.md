@@ -67,5 +67,6 @@ public class TribbleSHA512
 
 Encryption
 ```Byte[] ciphertext = new TribbleSHA512(key).XOR(plaintext)```
+
 Decryption
 ```Byte[] plaintext = new TribbleSHA512(key).XOR(ciphertext)```
